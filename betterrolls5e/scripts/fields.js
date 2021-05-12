@@ -275,8 +275,7 @@ export class RollFields {
 			} else {
 			    if (damageIndex !== "other") {
 			    	if (isCrit && critBehavior !== "0") {
-			    		let critFormula = ItemUtils.getCritFormula(item);
-			    		critRoll = ItemUtils.getCritRoll(baseRoll.formula, critFormula, total, { settings, extraCritDice });
+			    		critRoll = ItemUtils.getCritRoll(baseRoll.formula, total, { settings, extraCritDice });
 			    	}
 			    }
 			}
