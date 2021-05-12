@@ -324,7 +324,10 @@ export class RollFields {
 			const itemData = item.data.data;
 			const flags = item.data.flags.betterRolls5e;
 			const damageIndex = Number(options.damageIndex ?? flags.critDamage?.value);
-			formula = itemData.damage.parts[damageIndex][0];
+			formula = ItemUtils.getCritFormula(item);
+			if(!formula) {
+				formula = itemData.damage.parts[damageIndex][0];
+			}
 			damageType = damageType ?? itemData.damage.parts[damageIndex][1];
 			context = context ?? flags.quickDamage.context?.[damageIndex];
 		}
