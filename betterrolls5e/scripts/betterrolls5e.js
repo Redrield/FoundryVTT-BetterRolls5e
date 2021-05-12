@@ -50,6 +50,7 @@ CONFIG.betterRolls5e = {
 		weaponFlags: {
 			critRange: { type: "String", value: "" },
 			critDamage: { type: "String", value: "" },
+			critFormula: { type: "String", value: "" },
 			quickDesc: { type: "Boolean", get value() { return getQuickDescriptionDefault() }, get altValue() { return getQuickDescriptionDefault() } },
 			quickAttack: { type: "Boolean", value: true, altValue: true },
 			quickSave: { type: "Boolean", value: true, altValue: true },

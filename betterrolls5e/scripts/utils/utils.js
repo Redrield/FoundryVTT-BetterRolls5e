@@ -446,6 +446,14 @@ export class ItemUtils {
 		return Math.min(20, characterCrit, itemCrit);
 	}
 
+	static getCustomCritFormula(item) {
+		if(!item) return null;
+
+		let formula = getProperty(item, "data.flags.betterRolls5e.critFormula.value");
+
+		return formula;
+	}
+
 	static getDuration(item) {
 		const {duration} = item.data.data;
 

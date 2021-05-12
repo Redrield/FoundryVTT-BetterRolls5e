@@ -405,9 +405,16 @@ export class CustomItemRoll {
 						const { formula, total } = entry.baseRoll;
 						const extraCritDice = entry.extraCritDice ?? baseExtraCritDice;
 						entry.extraCritDice = extraCritDice;
-						entry.critRoll = ItemUtils.getCritRoll(formula, total, { settings, extraCritDice });
-						entry._critBackup = entry.critRoll; // prevent undoing the crit
-						this.dicePool.push(entry.critRoll);
+						let customFormula = ItemUtils.getCustomCritFormula(this.item);
+						if(customFormula != null) {
+						    entry.critRoll = ItemUtils.getCritRoll(customFormula, total, { settings, extraCritDice });
+						    entry._critBackup = entry.critRoll; // prevent undoing the crit
+						    this.dicePool.push(entry.critRoll);
+						} else {
+						    entry.critRoll = ItemUtils.getCritRoll(formula, total, { settings, extraCritDice });
+						    entry._critBackup = entry.critRoll; // prevent undoing the crit
+						    this.dicePool.push(entry.critRoll);
+						}
 					}
 
 					updated = true;
