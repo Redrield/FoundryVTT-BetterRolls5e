@@ -450,6 +450,7 @@ export class ItemUtils {
 		if(!item) return null;
 
 		let formula = getProperty(item, "data.flags.betterRolls5e.critFormula.value");
+		console.log("hhhhh " + formula);
 		return formula;
 	}
 
