@@ -268,11 +268,17 @@ export class RollFields {
 			const total = baseRoll.total;
 
 			// Roll crit damage if relevant
+			let formula = ItemUtils.getCritFormula(item);
 			let critRoll = null;
-			if (damageIndex !== "other") {
-				if (isCrit && critBehavior !== "0") {
-					critRoll = ItemUtils.getCritRoll(baseRoll.formula, total, { settings, extraCritDice });
-				}
+			if(formula) {
+				critRoll = new Roll(formula).evaluate();
+			} else {
+			    if (damageIndex !== "other") {
+			    	if (isCrit && critBehavior !== "0") {
+			    		let critFormula = ItemUtils.getCritFormula(item);
+			    		critRoll = ItemUtils.getCritRoll(baseRoll.formula, critFormula, total, { settings, extraCritDice });
+			    	}
+			    }
 			}
 
 			return {
