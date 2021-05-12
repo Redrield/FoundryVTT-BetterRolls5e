@@ -27,6 +27,16 @@
 	</select>
 	</div>
 	{{/if}}
+
+	<div class="form-group">
+		<label>Critical Damage Formula</label>
+		<input
+			type="text"
+			name="flags.betterRolls5e.critFormula.value"
+			value="{{flags.betterRolls5e.critFormula.value}}"
+			data-dtype="{{flags.betterRolls5e.critFormula.type}}"
+		/>
+	</div>
 	
 	<h3 class="form-header">
 		<label>{{localize "br5e.settings.quickRollsLabel"}}</label>
